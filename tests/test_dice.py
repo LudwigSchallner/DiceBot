@@ -1,4 +1,4 @@
-import dice
+from dice_bot import dice
 
 
 def test_dice():
