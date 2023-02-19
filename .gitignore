@@ -40,3 +40,6 @@ pip.conf
 
 # IDE files
 .idea/
+
+# Config files.
+config.yaml
