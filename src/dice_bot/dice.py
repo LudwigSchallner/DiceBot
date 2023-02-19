@@ -14,7 +14,7 @@ class Dice(pydantic.BaseModel):
     result_to_text: Mapping[int, str] = {}
     sum_up: bool = False
 
-    def __call__(self, count) -> int:
+    def __call__(self, count=1) -> int:
         """Roll `count`number of `face_number` dices."""
         return [self._roll() for _ in range(count)]
 
