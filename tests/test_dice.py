@@ -3,5 +3,7 @@ from dice_bot import dice
 
 def test_dice():
     """Test basic dice behavior."""
-    dice_six = dice.Dice(face_number=6, command="roll")
-    assert dice_six() in range(0, 6)
+    face_number = 6
+    dice_six = dice.Dice(face_number=face_number, name="roll", alias="r")
+    for dice_result in dice_six(100):
+        assert dice_result in (range(1, face_number + 1))
