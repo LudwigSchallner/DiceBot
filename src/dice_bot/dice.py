@@ -13,7 +13,7 @@ class Dice(pydantic.BaseModel):
     result_to_text: Mapping[int, str] = {}
     sum_up: bool = False
 
-    def _roll_dice(self) -> int:
+    def __call__(self) -> int:
         """Roll a 'number' dice."""
         return random.randint(0, self.face_number)
 
