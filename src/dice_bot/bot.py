@@ -19,8 +19,8 @@ def customCommand(name, alias, function):
     @discord.ext.commands.command(
         name=name, alias=alias, help="helpful text", brief="Brief explanation"
     )
-    async def command(ctx, command):
-        await ctx.send("hello world!")
+    async def command(ctx, command=1):
+        await ctx.send(function(command))
 
     return command
 
