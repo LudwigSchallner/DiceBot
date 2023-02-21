@@ -36,9 +36,9 @@ dices:
 ```
 # dice config and is may defined defaults
 ```
-  face_number: int
-  result_to_text: Mapping[int, str] = {}
-  sum_up: bool = False
-  sort: bool = False
-  default_count: int = 1
+face_number: int
+result_to_text: Mapping[int, str] = {}
+sum_up: bool = False
+sort: bool = False
+default_count: int = 1
 ```
