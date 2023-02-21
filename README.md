@@ -5,7 +5,7 @@
 git clone https://github.com/LudwigSchallner/DiceBot.git
 cd DiceBot
 pip install .
-python /path/to/DiceBot/src/dice_bot/cli.py --config-path some.yaml
+dice --config-path some.yaml
 ```
 ## Config
 ```
@@ -64,9 +64,8 @@ dices:
         18: "Brust"
         19: "Kopf"
         20: "Kopf"
-
-
 ```
+
 # dice config and is may defined defaults
 ```
 face_number: int
