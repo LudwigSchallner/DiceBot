@@ -51,6 +51,8 @@ def custom_command(command: DiceConfig):
         brief=command.help_text,
     )
     async def _command(ctx, command_attribute: int = command.dice.default_count):
-        await ctx.send(ctx.message.author.mention + command.dice(command_attribute))
+        await ctx.send(
+            f"{ ctx.message.author.mention }\n{ command.dice(command_attribute) }"
+        )
 
     return _command
