@@ -46,7 +46,7 @@ def custom_command(command: DiceConfig):
 
     @discord.ext.commands.command(
         name=command.name,
-        alias=command.alias,
+        aliases=command.alias,
         help=command.help_text,
         brief=command.help_text,
     )
