@@ -20,7 +20,7 @@ dices:
     alias: 
       - "d"
     brief_explanation: "Command für einen W6 roll (DMG)."
-    help_text: "Command für einen W6 roll (DMG).\nOhne Ansatz der Würfel wird mit einem Würfel gewürfelt."
+    help_text: "Command für einen W6 roll (DMG)."
     dice: 
       face_number: 6
       sum_up: True
