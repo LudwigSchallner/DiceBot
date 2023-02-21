@@ -1,6 +1,6 @@
 """Dice module."""
 import random
-from typing import Mapping, Sequence
+from typing import Mapping
 
 import pydantic
 
@@ -20,9 +20,3 @@ class Dice(pydantic.BaseModel):
     def _roll(self) -> int:
         """Roll `face_number` dice."""
         return random.randint(1, self.face_number)
-
-
-class Dices(Dice):
-    """Data of multiple dices."""
-
-    dices: Sequence[Dice]
