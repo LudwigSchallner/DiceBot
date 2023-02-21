@@ -9,10 +9,9 @@ class Dice(pydantic.BaseModel):
     """Dice BaseModel"""
 
     face_number: int
-    name: str
-    alias: str
     result_to_text: Mapping[int, str] = {}
     sum_up: bool = False
+    sort: bool = False
 
     def __call__(self, count=1) -> int:
         """Roll `count`number of `face_number` dices."""
