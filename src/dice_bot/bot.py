@@ -50,7 +50,7 @@ def custom_command(command: DiceConfig):
         help=command.help_text,
         brief=command.help_text,
     )
-    async def _command(ctx, command_attribute: int = 1):
+    async def _command(ctx, command_attribute: int = command.dice.default_count):
         await ctx.send(command.dice(command_attribute))
 
     return _command
