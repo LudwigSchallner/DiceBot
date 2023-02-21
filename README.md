@@ -7,6 +7,7 @@ cd DiceBot
 pip install .
 dice --config-path some.yaml
 ```
+
 ## Config
 ```
 bot_config:
