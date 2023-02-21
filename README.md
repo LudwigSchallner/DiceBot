@@ -67,7 +67,7 @@ dices:
         20: "Kopf"
 ```
 
-# dice config and is may defined defaults
+## Dice config and is may defined defaults
 ```
 face_number: int
 result_to_text: Mapping[int, str] = {}
