@@ -12,6 +12,7 @@ class Dice(pydantic.BaseModel):
     result_to_text: Mapping[int, str] = {}
     sum_up: bool = False
     sort: bool = False
+    default_count: int = 1
 
     def __call__(self, count=1) -> int:
         """Roll `count`number of `face_number` dices."""
@@ -23,7 +24,7 @@ class Dice(pydantic.BaseModel):
     def _format(self, rolls: Sequence[int]) -> str:
         if self.sort:
             rolls = rolls.sort()
-        result_text = ", ".join(rolls)
+        result_text = ", ".join(str(roll) for roll in rolls)
         if self.sum_up and len(rolls) > 1:
             result_sum = sum(rolls)
             result_text += f" [{result_sum}]"
