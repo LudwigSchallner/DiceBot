@@ -13,7 +13,7 @@ def start(
     config_path: pathlib.Path = typer.Option(..., exists=True, dir_okay=False)
 ) -> None:
     """Entry point for starting the server and initializing the given config."""
-    with open(config_path, mode="r") as file:
+    with open(config_path, mode="r", encoding="UTF-8") as file:
         config_file = yaml.safe_load(file)
 
     config = bot.Config.parse_obj(config_file)
@@ -22,8 +22,8 @@ def start(
 
     client = bot.DiceBot(command_prefix=bot_config.command_prefix)
 
-    for dice_command in dices:
-        client.add_command(bot.custom_command(dice_command))
+    for dice_attributes in dices:
+        client.add_command(bot.custom_command(dice_attributes))
 
     client.run(bot_config.token)
 

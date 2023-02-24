@@ -1,8 +1,9 @@
 """Bot module."""
-from typing import Sequence
+from typing import Any, Mapping, Sequence
 
 import discord
 from discord.ext.commands import Bot
+import hydra
 import pydantic
 
 from dice_bot.dice import Dice
@@ -23,6 +24,12 @@ class DiceConfig(pydantic.BaseModel):
     help_text: str
     brief_explanation: str
     dice: Dice
+
+    @pydantic.validator("*", pre=True)
+    def instantiate(cls, value: any) -> Any:
+        if isinstance(value, Mapping) and "_target_" in value:
+            return hydra.utils.call(value)
+        return value
 
 
 class Config(pydantic.BaseModel):
