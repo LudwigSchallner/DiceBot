@@ -1,6 +1,5 @@
 import pathlib
 
-import hydra
 import typer
 import yaml
 
@@ -24,7 +23,7 @@ def start(
     client = bot.DiceBot(command_prefix=bot_config.command_prefix)
 
     for dice_attributes in dices:
-        client.add_command(bot.custom_command(hydra.utils.instantiate(dice_attributes)))
+        client.add_command(bot.custom_command(dice_attributes))
 
     client.run(bot_config.token)
 
