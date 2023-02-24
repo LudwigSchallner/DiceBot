@@ -5,7 +5,7 @@ from typing import Mapping, Sequence
 import pydantic
 
 
-class Dice(pydantic.BaseModel):
+class _Dice(pydantic.BaseModel):
     """Dice BaseModel"""
 
     face_number: int
@@ -15,7 +15,7 @@ class Dice(pydantic.BaseModel):
         return random.randint(1, self.face_number)
 
 
-class ClassicDice(Dice):
+class ClassicDice(_Dice):
     """ClassicDice with will may will be rolled multiple times."""
 
     def __call__(self, count) -> int:
@@ -28,7 +28,7 @@ class ClassicDice(Dice):
         return result_text
 
 
-class MappingDice(Dice):
+class MappingDice(_Dice):
     """Dice with has a roll to text mapping."""
 
     result_to_text: Mapping[int, str]
@@ -58,7 +58,7 @@ class SumUpDice(ClassicDice):
         return f"{without_sum} [{sum(rolls)}]"
 
 
-class SucessDice(Dice):
+class SucessDice(_Dice):
     """Dice with is based on Success behavior."""
 
     threshold: int

@@ -5,7 +5,7 @@ import discord
 from discord.ext.commands import Bot
 import pydantic
 
-from dice_bot.dice import Dice
+from dice_bot.dice import _Dice
 
 
 class BotConfig(pydantic.BaseModel):
@@ -22,7 +22,7 @@ class DiceConfig(pydantic.BaseModel):
     alias: str | Sequence[str]
     help_text: str
     brief_explanation: str
-    dice: Dice
+    dice: _Dice
 
 
 class Config(pydantic.BaseModel):
