@@ -5,17 +5,18 @@ from typing import Mapping, Sequence
 import pydantic
 
 
-class _Dice(pydantic.BaseModel):
+class Dice(pydantic.BaseModel):
     """Dice BaseModel"""
 
     face_number: int
+    default_count: int = 1
 
     def _roll(self) -> int:
         """Roll `face_number` dice."""
         return random.randint(1, self.face_number)
 
 
-class ClassicDice(_Dice):
+class ClassicDice(Dice):
     """ClassicDice with will may will be rolled multiple times."""
 
     def __call__(self, count) -> int:
@@ -28,7 +29,7 @@ class ClassicDice(_Dice):
         return result_text
 
 
-class MappingDice(_Dice):
+class MappingDice(Dice):
     """Dice with has a roll to text mapping."""
 
     result_to_text: Mapping[int, str]
@@ -58,7 +59,7 @@ class SumUpDice(ClassicDice):
         return f"{without_sum} [{sum(rolls)}]"
 
 
-class SucessDice(_Dice):
+class SucessDice(Dice):
     """Dice with is based on Success behavior."""
 
     threshold: int
